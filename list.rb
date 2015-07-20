@@ -1,6 +1,6 @@
 class List
   attr_reader :markdown, :x
-  def initialize(markdown)
+  def initialize(markdown, x)
     @markdown = markdown
     @x = x
   end
@@ -11,12 +11,13 @@ class List
     end
   end
 
-    def replaces_asterisks_two_words
-       x.map do |word|
-         if word[0..1] == "*\n"
+  def replaces_asterisks_two_words
+      x.map do |word|
+         word.delete "*"
 
-        end
-    end
+         end
+       end
+  end
 
     def put_items_on_lines
       if markdown[0] == "*"

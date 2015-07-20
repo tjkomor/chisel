@@ -16,9 +16,9 @@ class ListTest < Minitest::Test
   end
 
   def test_it_replaces_asterisks_in_seperate_words
-    markdown = "* Sushi, * Mexican"
-    x = markdown.split
-    list = List.new(markdown)
+    markdown = "* Sushi\n* Mexican"
+    x = markdown.split(" ")
+    list = List.new(markdown, x)
     assert_equal "<li>Sushi</li>, <li>Mexican</li>", list.replaces_asterisks_two_words
   end
 
